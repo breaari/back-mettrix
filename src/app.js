@@ -25,7 +25,7 @@ app.use(cookieParser());
 app.use(morgan('dev'));
 
 app.use(cors({
-  origin: ['http://localhost:5174', 'http://localhost:5173', '*'],
+  origin: ['http://localhost:5174', 'http://localhost:5173', '*', 'https://front-mettrix.vercel.app', 'http://mettrix.com.ar', 'https://mettrix.com.ar'],
   credentials: true,
   methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE'],
   allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization'],

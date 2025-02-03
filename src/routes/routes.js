@@ -12,6 +12,8 @@ const { createProyectoHandler } = require('../handlers/proyecto/createProyectoHa
 const { deleteProyectoHandler } = require('../handlers/proyecto/deleteProyectoHandler');
 const { getAllProyectosHandler } = require('../handlers/proyecto/getAllProyectosHandler')
 const multer = require('multer');
+const { contactHandler } = require('../handlers/email/contactHandler');
+const { sendApplicationEmailHandler } = require('../handlers/email/cvHandler');
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -44,5 +46,9 @@ router.put("/proyectos/:id", upload.array("multimedia", 10), updateProyectoHandl
 
 router.post("/proyectos", upload.array("multimedia", 10), createProyectoHandler); // Solo aplica multer en la creación de proyectos
 router.delete("/proyectos/:id", deleteProyectoHandler);
+
+router.post("/contacto", contactHandler); 
+
+router.post("/postulacion", sendApplicationEmailHandler); 
 
 module.exports = router;
