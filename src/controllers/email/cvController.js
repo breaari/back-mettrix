@@ -10,7 +10,7 @@ const sendApplicationEmailController = async (input, filePath) => {
 
   try {
     const mailOptions = {
-      from: email,
+      from: process.env.EMAIL_USER,
       to: process.env.EMAIL_USER, // Tu propio correo
       subject: `Nueva solicitud de empleo: ${area}`,
       text: `Nombre: ${nombre}\nCorreo Electrónico: ${email}\nÁrea: ${area}`,

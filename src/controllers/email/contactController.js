@@ -10,7 +10,7 @@ const sendContactEmail = async (input) => {
 
   try {
     const mailOptions = {
-      from: email,
+      from: process.env.EMAIL_USER,
       to: process.env.EMAIL_USER,
       subject: "Nuevo mensaje de contacto",
       text: `Nombre: ${nombre}\nEmpresa: ${empresa || "No especificada"}\nEmail: ${email}\nTeléfono: ${telefono}\nConsulta: ${consulta}`,

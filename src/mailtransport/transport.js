@@ -7,8 +7,11 @@ const transporter = nodemailer.createTransport({
   secure: true, // Habilitar SSL/TLS
   auth: {
     user: process.env.EMAIL_USER, // Dirección de correo desde el archivo .env
-    pass: process.env.EMAIL_PASS, // Contraseña desde el archivo .env
+    pass: process.env.EMAIL_PASS,
+    method: 'LOGIN', // Contraseña desde el archivo .env
   },
+  logger: true,  // Habilitar registros de conexión
+  debug: true, 
 });
 
 module.exports = transporter; // 🚀 Exporta correctamente
